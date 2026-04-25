@@ -22,25 +22,22 @@ def save_task(data):
     print("Task Saved")
 
 
-
 def add_task(data):
-    
-    
+
     task = input("Enter the task : ")
     priority = input("Enter priority (High/Medium/Low): ")
-    
-    
-    new_task = {
-        "task" : task , 
-        "priority": priority
-        
-        }
-    data['task'].append(new_task)
+
+    new_task = {"task": task, "priority": priority}
+    data["task"].append(new_task)
     save_task
 
 
-def edit_task():
-    pass
-
+def view_task(data):
+    
+    if not data['task']:
+        print("You don't have task yet")
+        
+    for title in data["task"]:
+        print(f"Task : {title["task"]}  Priority : {title["priority"]}")
 
 # Working
