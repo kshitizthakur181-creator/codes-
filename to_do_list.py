@@ -16,3 +16,5 @@ def load_task():
 def completed_task():
     pass
 
+def edit_task():
+    pass
