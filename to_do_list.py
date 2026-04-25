@@ -16,14 +16,27 @@ def load_task():
         print("No such file exsist")
 
 
-def add_task(data):
+def save_task(data):
     with open(file_name, "w") as file:
         json.dump(data, file, indent=4)
     print("Task Saved")
 
 
-def completed_task():
-    pass
+
+def add_task(data):
+    
+    
+    task = input("Enter the task : ")
+    priority = input("Enter priority (High/Medium/Low): ")
+    
+    
+    new_task = {
+        "task" : task , 
+        "priority": priority
+        
+        }
+    data['task'].append(new_task)
+    save_task
 
 
 def edit_task():
