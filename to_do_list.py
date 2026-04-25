@@ -41,3 +41,24 @@ def view_task(data):
         print(f"Task : {title["task"]}  Priority : {title["priority"]}")
 
 # Working
+def main(): 
+    todo_data = load_task()
+    
+    while True :
+        print("\nOptions: [1] View Tasks  [2] Add Task  [3] Quit")
+        choice = input("What would you like to do? ")
+        
+        if choice == "1":
+            view_tasks(todo_data)
+        elif choice == "2":
+            add_task(todo_data)
+        elif choice == "3":
+            print("Goodbye!")
+            break
+        else:
+            print("Invalid choice, please type 1, 2, or 3.")
+    
+    
+if __name__ == "__main__":
+    main()
+    
