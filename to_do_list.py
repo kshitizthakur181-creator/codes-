@@ -14,6 +14,7 @@ def load_task():
 
     else:
         print("No such file exsist")
+        return{"task":[]}
 
 
 def save_task(data):
@@ -29,27 +30,29 @@ def add_task(data):
 
     new_task = {"task": task, "priority": priority}
     data["task"].append(new_task)
-    save_task
+    save_task(data)
 
 
 def view_task(data):
-    
-    if not data['task']:
+
+    if not data["task"]:
         print("You don't have task yet")
-        
+        return
+
     for title in data["task"]:
-        print(f"Task : {title["task"]}  Priority : {title["priority"]}")
+        print(f"Task : {title['task']}  Priority : {title['priority']}")
+
 
 # Working
-def main(): 
+def main():
     todo_data = load_task()
-    
-    while True :
+
+    while True:
         print("\nOptions: [1] View Tasks  [2] Add Task  [3] Quit")
         choice = input("What would you like to do? ")
-        
+
         if choice == "1":
-            view_tasks(todo_data)
+            view_task(todo_data)
         elif choice == "2":
             add_task(todo_data)
         elif choice == "3":
@@ -57,8 +60,6 @@ def main():
             break
         else:
             print("Invalid choice, please type 1, 2, or 3.")
-    
-    
-if __name__ == "__main__":
-    main()
-    
+
+
+main()
